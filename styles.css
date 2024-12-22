@@ -1,0 +1,335 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Inline Controls for Start/End Node and Buttons */
+.run-controls-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.run-controls-inline label {
+  color: white;
+  font-weight: bold;
+}
+
+.run-controls-inline input {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.run-controls-inline button {
+  padding: 8px 15px;
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.run-controls-inline button:hover {
+  background-color: #1e5fb7;
+}
+
+/* Highlighted Nodes */
+.vis-network .node-yellow {
+  background-color: yellow !important;
+  border-color: orange !important;
+}
+
+.vis-network .node-green {
+  background-color: limegreen !important;
+  border-color: rgb(91, 179, 91) !important;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #1d3f76, #781e9b);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #af7ac5, #290f33);
+  color: #fff;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid #fff;
+}
+
+header .header-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+header p {
+  font-size: 18px;
+  opacity: 0.9;
+  line-height: 1.4;
+  font-weight: 300;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+/* Fixed Text Styling */
+.fixed-text {
+  position: absolute;
+  /* Position text inside the parent container */
+  top: 10px;
+  /* Distance from the top */
+  left: 50%;
+  /* Center horizontally */
+  transform: translateX(-50%);
+  /* Adjust horizontal centering */
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  z-index: 10;
+  /* Keep text above other content */
+  background-color: rgba(255, 255, 255, 0.7);
+  /* Slight white background for readability */
+  padding: 3px 10px;
+  /* Add some spacing */
+  border-radius: 5px;
+  /* Optional: Rounded corners */
+}
+
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #2874a6, #98a0a1);
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav button {
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  transition: transform 0.2s, background-color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #1e5fb7;
+  transform: translateY(-5px);
+}
+
+nav button:active {
+  transform: translateY(3px);
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  gap: 20px;
+  padding: 10px;
+  overflow: auto;
+}
+
+/* Container for Graph and Output Section */
+.container {
+  display: flex;
+  height: 100%;
+  gap: 20px;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Graph Section */
+#graph {
+  flex: 1;
+  min-height: 200px;
+  max-height: 65vh;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+#graph:hover {
+  transform: scale(1.03);
+}
+
+/* Output Section */
+#output {
+  flex: 1;
+  min-height: 200px;
+  max-height: 65vh;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #130808;
+  opacity: 0.8;
+  font-weight: 500;
+  overflow-y: auto;
+}
+
+/* Controls Section (Input Fields) */
+.controls {
+  display: flex;
+  flex-direction: column;
+  /* Input fields stacked vertically */
+  gap: 15px;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.controls input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 180px;
+  border: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.controls input:focus {
+  border-color: #2575fc;
+}
+
+.controls label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+/* Container for Buttons (aligning to the right) */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  /* Buttons stacked vertically */
+  gap: 15px;
+  align-items: flex-end;
+  /* Align buttons to the right */
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #2575fc;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  transition: transform 0.2s, background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #1e5fb7;
+  transform: translateY(-5px);
+}
+
+.button-container button:active {
+  transform: translateY(3px);
+}
+
+.button-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Layout for the main section */
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container {
+    height: 80vh;
+    flex-direction: column;
+  }
+
+  #graph,
+  #output {
+    height: 45vh;
+  }
+
+  .button-container,
+  .controls {
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 30px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  .button-container button,
+  .controls button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .controls input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #graph {
+    height: 65vh;
+  }
+}

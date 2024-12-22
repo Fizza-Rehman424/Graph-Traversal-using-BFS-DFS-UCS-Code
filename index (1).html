@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Connection Graph</title>
+  <link href="styles.css" rel="stylesheet">
+  <script src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+  <link href="https://unpkg.com/vis-network@9.1.2/styles/vis-network.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <h1>City Connection Graph</h1>
+      <p>Explore and visualize the graph with different algorithms</p>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <button id="bfs">BFS</button>
+    <button id="dfs">DFS</button>
+    <button id="ucs">UCS</button>
+  </nav>
+  <nav>
+    <!-- Buttons -->
+    <div class="run-controls-inline">
+      <label for="start">Start Node</label>
+      <input type="text" id="start" placeholder="Start Node" />
+      <label for="end">End Node</label>
+      <input type="text" id="end" placeholder="End Node" />
+      <button id="run">Find Path</button>
+      <button id="reset">Reset Graph</button>
+      <button id="addRoute">Add Route</button>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="container">
+      <!-- Graph Box -->
+      <div id="graph" style="position: relative;">
+        <div class="fixed-text">Graph</div>
+      </div>
+
+      <!-- Output Box -->
+      <div id="output" style="position: relative;">
+        <div class="fixed-text">Output</div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
